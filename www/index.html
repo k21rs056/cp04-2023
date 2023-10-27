@@ -44,6 +44,9 @@
         $('#btnE').click(function(e) {
             btnEClick(e);
         });
+        $('#btnF').click(function(e) {
+            btnFClick(e);
+        });
         init();
     });
     
@@ -159,6 +162,7 @@
     var active = false;
     var startTime = 0;
     var period = 0;
+    var time;
 
     
     // ボタンの初期設定
@@ -166,6 +170,9 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
+        $('#btnE').prop('disabled', false);
+        $('#btnF').prop('disabled', false);
         
     }
 
@@ -194,7 +201,6 @@
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
       active = false;
-        
     }
 
     // ButtonCがクリックされた時の処理
@@ -222,11 +228,15 @@
         $("#time").html("経過時間: 0");
         $("#remain").html("残り時間: " + period);
     }
+    function btnFClick(e){
+        active = true;
+        startTime = new Date() - time * 1000;
+    }
  
     // 繰り返し実行する処理
     function timer(){  
       if(active){
-        var time = parseInt( (new Date() - startTime)/1000 );
+        time = parseInt( (new Date() - startTime)/1000 );
         var rest = period - time;
         $("#time").html("経過時間: " + time);
         $("#remain").html("残り時間: " + rest);
@@ -254,6 +264,7 @@
     <button id="btnC">Set</button>  
     <button id ="btnD">Three</button>
     <button id ="btnE">Five</button>
+    <button id = "btnF">Resume</button>
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
