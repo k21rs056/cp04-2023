@@ -77,6 +77,12 @@
         position:absolute; top: 440px;left:7%;
         width: 40%;height:60px;
     }
+
+     #btnE{
+        font-size: 10px;
+        position:absolute; top: 440px;left:50%;
+        width: 40%;height:60px;
+    }
     
     #minute {
         font-size: 30px;
